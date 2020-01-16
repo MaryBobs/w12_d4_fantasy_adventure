@@ -1,5 +1,7 @@
 package players;
 
+import enemies.Enemy;
+import enemies.EnemyType;
 import org.junit.Before;
 import org.junit.Test;
 import player.Dwarf;
@@ -14,6 +16,7 @@ public class DwarfTest {
     private Skill sword;
     private Skill hammer;
     private Valuable gold;
+    private Enemy orc;
 
     @Before
     public void before() {
@@ -21,6 +24,7 @@ public class DwarfTest {
         dwarf = new Dwarf(20, sword);
         hammer = new Skill("Hammer", -5);
         gold = new Valuable("gold", 5);
+        orc = new Enemy(10, 3, EnemyType.ORC);
     }
 
     @Test
@@ -60,5 +64,11 @@ public class DwarfTest {
     public void canDefend() {
         dwarf.defend(3);
         assertEquals(17, dwarf.getHealth());
+    }
+
+    @Test
+    public void canActivateSkill() {
+        dwarf.activateSkill(orc);
+        assertEquals(7, orc.getHealth());
     }
 }

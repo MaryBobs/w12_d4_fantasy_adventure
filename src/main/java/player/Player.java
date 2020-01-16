@@ -1,6 +1,7 @@
 package player;
 
 import behaviours.IHealth;
+import enemies.Enemy;
 import skill.Skill;
 import valuables.Valuable;
 
@@ -44,5 +45,9 @@ public abstract class Player implements IHealth {
 
     public void defend(int damage) {
         health -= damage;
+    }
+
+    public void activateSkill(IHealth target) {
+        target.setHealth(target.getHealth() + skill.getValue());
     }
 }
