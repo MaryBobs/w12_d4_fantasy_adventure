@@ -55,4 +55,10 @@ public class DwarfTest {
         dwarf.collectTreasure(gold);
         assertEquals(1, dwarf.getTreasures().size());
     }
+
+    @Test
+    public void canDefend() {
+        dwarf.defend(3);
+        assertEquals(17, dwarf.getHealth());
+    }
 }

@@ -41,4 +41,8 @@ public abstract class Player implements IHealth {
     public void collectTreasure(Valuable treasure) {
         treasures.add(treasure);
     }
+
+    public void defend(int damage) {
+        health -= damage;
+    }
 }
