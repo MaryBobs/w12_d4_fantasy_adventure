@@ -35,4 +35,8 @@ public class Room {
         treasures = new ArrayList<Valuable>();
         return takenTreasures;
     }
+
+    public void addPlayers(ArrayList<Player> players) {
+        this.players = players;
+    }
 }
