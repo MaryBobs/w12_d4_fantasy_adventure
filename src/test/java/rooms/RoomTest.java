@@ -65,4 +65,10 @@ public class RoomTest {
         room1.addPlayers(players);
         assertEquals(2, room1.getPlayers().size());
     }
+
+    @Test
+    public void canKillEnemy() {
+        room1.killEnemy();
+        assertNull(room1.getEnemy());
+    }
 }

@@ -39,4 +39,8 @@ public class Room {
     public void addPlayers(ArrayList<Player> players) {
         this.players = players;
     }
+
+    public void killEnemy() {
+        this.enemy = null;
+    }
 }
