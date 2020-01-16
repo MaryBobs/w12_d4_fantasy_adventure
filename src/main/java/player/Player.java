@@ -38,10 +38,7 @@ public abstract class Player implements IHealth {
         this.skill = skill;
     }
 
-    public void setTreasures(ArrayList<Valuable> treasures) {
-        this.treasures = treasures;
+    public void collectTreasure(Valuable treasure) {
+        treasures.add(treasure);
     }
-
-
-
 }
