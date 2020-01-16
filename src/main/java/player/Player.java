@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public abstract class Player implements IHealth {
 
     protected int health;
-    private Skill skill;
+    protected Skill skill;
     private ArrayList<Valuable> treasures;
 
     public Player(int health, Skill skill) {
@@ -48,6 +48,6 @@ public abstract class Player implements IHealth {
     }
 
     public void activateSkill(IHealth target) {
-        target.setHealth(target.getHealth() + skill.getValue());
+        target.setHealth(target.getHealth() - skill.getValue());
     }
 }

@@ -20,9 +20,9 @@ public class FighterTest {
 
     @Before
     public void before() {
-        sword = new Skill("Sword", -3);
+        sword = new Skill("Sword", 3);
         fighter = new Fighter(20, sword);
-        hammer = new Skill("Hammer", -5);
+        hammer = new Skill("Hammer", 5);
         gold = new Valuable("gold", 5);
         orc = new Enemy(10, 3, EnemyType.ORC);
     }
