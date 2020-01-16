@@ -20,7 +20,9 @@ public class GameTest {
 
     private Game game;
     private Room room1;
+    private Room room2;
     private Enemy orc;
+    private Enemy troll;
     private Fighter fighter1;
     private Fighter fighter2;
     private Skill sword;
@@ -40,6 +42,8 @@ public class GameTest {
         room1 = new Room(orc, treasures);
         players = new ArrayList<Player>(Arrays.asList(fighter1, fighter2));
         game = new Game();
+        troll = new Enemy(50, 10, EnemyType.TROLL);
+        room2 = new Room(troll, treasures);
     }
 
     @Test
@@ -49,5 +53,14 @@ public class GameTest {
         assertEquals(2, room1.getPlayers().size());
         assertNull(room1.getEnemy());
         assertEquals(1, fighter1.getTreasures().size());
+    }
+
+    @Test
+    public void canEnemyWin() {
+        room2.addPlayers(players);
+        game.battleEnemy(room2);
+        assertEquals(0, room2.getPlayers().size());
+        assertEquals(troll, room2.getEnemy());
+        assertEquals(treasures, room2.getTreasures());
     }
 }

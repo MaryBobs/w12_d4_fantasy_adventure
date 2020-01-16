@@ -16,7 +16,11 @@ public class Game {
                     break;
                 }
                 room.getEnemy().attack(player);
+                if (player.getHealth() < 0) {
+                    room.killPlayer(player);
+                }
             }
+
         }
         if (room.getPlayers().size() > 0) {
             for (Valuable treasure : room.getTreasures()) {
