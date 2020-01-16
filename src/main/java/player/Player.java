@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public abstract class Player implements IHealth {
 
-    private int health;
+    protected int health;
     private Skill skill;
     private ArrayList<Valuable> treasures;
 

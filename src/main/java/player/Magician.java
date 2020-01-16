@@ -15,4 +15,9 @@ public class Magician extends Player {
     public MythicalCreature getCompanion() {
         return companion;
     }
+
+    @Override
+    public void defend(int damage) {
+       health -= (damage - companion.getDefenceValue());
+    }
 }

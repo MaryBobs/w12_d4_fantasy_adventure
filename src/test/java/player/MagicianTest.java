@@ -24,4 +24,10 @@ public class MagicianTest {
     public void getCompanion() {
         assertEquals(dragon, magician1.getCompanion());
     }
+
+    @Test
+    public void canDefendWithCompanion() {
+        magician1.defend(5);
+        assertEquals(17, magician1.getHealth());
+    }
 }
