@@ -3,6 +3,6 @@ package behaviours;
 public interface IHealth {
 
     int getHealth();
-    int setHealth();
+    void setHealth(int health);
 
 }
