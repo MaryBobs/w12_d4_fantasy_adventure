@@ -29,4 +29,10 @@ public class Room {
     public ArrayList<Valuable> getTreasures() {
         return treasures;
     }
+
+    public ArrayList<Valuable> takeTreasures() {
+        ArrayList<Valuable> takenTreasures = treasures;
+        treasures = new ArrayList<Valuable>();
+        return takenTreasures;
+    }
 }

@@ -46,4 +46,11 @@ public class RoomTest {
     public void getTreasures() {
         assertEquals(treasures, room1.getTreasures());
     }
+
+    @Test
+    public void canTakeTreasures() {
+        ArrayList<Valuable> treasuresTaken = room1.takeTreasures();
+        assertEquals(0, room1.getTreasures().size());
+        assertEquals(treasuresTaken, treasures);
+    }
 }
