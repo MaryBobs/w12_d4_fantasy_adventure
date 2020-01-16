@@ -4,15 +4,15 @@ import enemies.Enemy;
 import enemies.EnemyType;
 import org.junit.Before;
 import org.junit.Test;
-import player.Dwarf;
+import player.Fighter;
 import skill.Skill;
 import valuables.Valuable;
 
 import static org.junit.Assert.assertEquals;
 
-public class DwarfTest {
+public class FighterTest {
 
-    private Dwarf dwarf;
+    private Fighter fighter;
     private Skill sword;
     private Skill hammer;
     private Valuable gold;
@@ -21,7 +21,7 @@ public class DwarfTest {
     @Before
     public void before() {
         sword = new Skill("Sword", -3);
-        dwarf = new Dwarf(20, sword);
+        fighter = new Fighter(20, sword);
         hammer = new Skill("Hammer", -5);
         gold = new Valuable("gold", 5);
         orc = new Enemy(10, 3, EnemyType.ORC);
@@ -29,46 +29,46 @@ public class DwarfTest {
 
     @Test
     public void canGetHealth() {
-        assertEquals(20, dwarf.getHealth());
+        assertEquals(20, fighter.getHealth());
     }
 
     @Test
     public void canSetHealth() {
-        dwarf.setHealth(10);
-        assertEquals(10, dwarf.getHealth());
+        fighter.setHealth(10);
+        assertEquals(10, fighter.getHealth());
     }
 
     @Test
     public void canGetSkill() {
-        assertEquals(sword, dwarf.getSkill());
+        assertEquals(sword, fighter.getSkill());
     }
 
     @Test
     public void canSetSkill() {
-        dwarf.setSkill(hammer);
-        assertEquals(hammer, dwarf.getSkill());
+        fighter.setSkill(hammer);
+        assertEquals(hammer, fighter.getSkill());
     }
 
     @Test
     public void canGetTreasures() {
-        assertEquals(0, dwarf.getTreasures().size());
+        assertEquals(0, fighter.getTreasures().size());
     }
 
     @Test
     public void canCollectTreasure() {
-        dwarf.collectTreasure(gold);
-        assertEquals(1, dwarf.getTreasures().size());
+        fighter.collectTreasure(gold);
+        assertEquals(1, fighter.getTreasures().size());
     }
 
     @Test
     public void canDefend() {
-        dwarf.defend(3);
-        assertEquals(17, dwarf.getHealth());
+        fighter.defend(3);
+        assertEquals(17, fighter.getHealth());
     }
 
     @Test
     public void canActivateSkill() {
-        dwarf.activateSkill(orc);
+        fighter.activateSkill(orc);
         assertEquals(7, orc.getHealth());
     }
 }

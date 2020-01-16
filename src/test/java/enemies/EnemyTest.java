@@ -2,7 +2,7 @@ package enemies;
 
 import org.junit.Before;
 import org.junit.Test;
-import player.Dwarf;
+import player.Fighter;
 import skill.Skill;
 
 import static org.junit.Assert.*;
@@ -10,14 +10,14 @@ import static org.junit.Assert.*;
 public class EnemyTest {
 
     private Enemy orc;
-    private Dwarf dwarf;
+    private Fighter fighter;
     private Skill sword;
 
     @Before
     public void setUp() {
         orc = new Enemy(10, 3, EnemyType.ORC);
         sword = new Skill("Sword", -3);
-        dwarf = new Dwarf(20, sword);
+        fighter = new Fighter(20, sword);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class EnemyTest {
 
     @Test
     public void canAttack() {
-        orc.attack(dwarf);
-        assertEquals(17, dwarf.getHealth());
+        orc.attack(fighter);
+        assertEquals(17, fighter.getHealth());
     }
 }

@@ -1,7 +1,6 @@
 package enemies;
 
 import behaviours.IHealth;
-import player.Dwarf;
 import player.Player;
 
 public class Enemy implements IHealth {

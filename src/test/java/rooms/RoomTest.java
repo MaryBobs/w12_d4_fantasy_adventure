@@ -4,7 +4,7 @@ import enemies.Enemy;
 import enemies.EnemyType;
 import org.junit.Before;
 import org.junit.Test;
-import player.Dwarf;
+import player.Fighter;
 import player.Player;
 import skill.Skill;
 import valuables.Valuable;
@@ -18,8 +18,8 @@ public class RoomTest {
 
     private Room room1;
     private Enemy orc;
-    private Dwarf dwarf1;
-    private Dwarf dwarf2;
+    private Fighter fighter1;
+    private Fighter fighter2;
     private Skill sword;
     private Valuable gold;
     private ArrayList<Valuable> treasures;
@@ -29,13 +29,13 @@ public class RoomTest {
     public void setUp() {
         orc = new Enemy(10, 3, EnemyType.ORC);
         sword = new Skill("Sword", -3);
-        dwarf1 = new Dwarf(20, sword);
-        dwarf2 = new Dwarf(30, sword);
+        fighter1 = new Fighter(20, sword);
+        fighter2 = new Fighter(30, sword);
         gold = new Valuable("gold", 5);
         treasures = new ArrayList<Valuable>();
         treasures.add(gold);
         room1 = new Room(orc, treasures);
-        players = new ArrayList<Player>(Arrays.asList(dwarf1, dwarf2));
+        players = new ArrayList<Player>(Arrays.asList(fighter1, fighter2));
     }
 
     @Test
@@ -75,7 +75,7 @@ public class RoomTest {
     @Test
     public void canKillPlayer() {
         room1.addPlayers(players);
-        room1.killPlayer(dwarf2);
+        room1.killPlayer(fighter2);
         assertEquals(1, room1.getPlayers().size());
     }
 }

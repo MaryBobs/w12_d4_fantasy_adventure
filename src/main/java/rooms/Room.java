@@ -1,7 +1,6 @@
 package rooms;
 
 import enemies.Enemy;
-import player.Dwarf;
 import player.Player;
 import valuables.Valuable;
 
