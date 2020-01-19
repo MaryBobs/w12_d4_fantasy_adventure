@@ -25,6 +25,8 @@ public class GameTest {
     private Enemy troll;
     private Fighter fighter1;
     private Fighter fighter2;
+    private Fighter fighter3;
+    private Fighter fighter4;
     private Skill sword;
     private Valuable gold;
     private ArrayList<Valuable> treasures;
@@ -36,11 +38,13 @@ public class GameTest {
         sword = new Skill("Sword", 3);
         fighter1 = new Fighter(20, sword);
         fighter2 = new Fighter(30, sword);
+        fighter3 = new Fighter(15, sword);
+        fighter4 = new Fighter(25, sword);
         gold = new Valuable("gold", 5);
         treasures = new ArrayList<Valuable>();
         treasures.add(gold);
         room1 = new Room(orc, treasures);
-        players = new ArrayList<Player>(Arrays.asList(fighter1, fighter2));
+        players = new ArrayList<Player>(Arrays.asList(fighter1, fighter2, fighter3, fighter4));
         game = new Game();
         troll = new Enemy(50, 10, EnemyType.TROLL);
         room2 = new Room(troll, treasures);
@@ -50,7 +54,7 @@ public class GameTest {
     public void canFightEnemy() {
         room1.addPlayers(players);
         game.battleEnemy(room1);
-        assertEquals(2, room1.getPlayers().size());
+        assertEquals(4, room1.getPlayers().size());
         assertNull(room1.getEnemy());
         assertEquals(1, fighter1.getTreasures().size());
     }

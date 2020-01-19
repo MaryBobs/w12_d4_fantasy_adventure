@@ -78,4 +78,17 @@ public class RoomTest {
         room1.killPlayer(fighter2);
         assertEquals(1, room1.getPlayers().size());
     }
+
+    @Test
+    public void canGetPlayersTotalHealth() {
+        room1.addPlayers(players);
+        assertEquals(50, room1.getTotalPlayerHealth());
+    }
+
+    @Test
+    public void canRemoveAllPlayers() {
+        room1.addPlayers(players);
+        room1.removeAllPlayers();
+        assertEquals(0, room1.getPlayers().size());
+    }
 }

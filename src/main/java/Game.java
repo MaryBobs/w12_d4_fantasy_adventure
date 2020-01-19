@@ -8,7 +8,7 @@ public class Game {
 
 
     public void battleEnemy(Room room) {
-        while (room.getPlayers().size() > 0 && room.getEnemy() != null) {
+        while (room.getTotalPlayerHealth() > 0 && room.getEnemy() != null) {
             for (Player player : room.getPlayers()) {
                 player.activateSkill(room.getEnemy());
                 if (room.getEnemy().getHealth() < 0) {
@@ -16,16 +16,16 @@ public class Game {
                     break;
                 }
                 room.getEnemy().attack(player);
-                if (player.getHealth() < 0) {
-                    room.killPlayer(player);
-                }
             }
-
         }
-        if (room.getPlayers().size() > 0) {
+        if (room.getTotalPlayerHealth() > 0) {
             for (Valuable treasure : room.getTreasures()) {
                 room.getPlayers().get(0).collectTreasure(treasure);
             }
         }
+        else {
+            room.removeAllPlayers();
+        }
     }
+
 }

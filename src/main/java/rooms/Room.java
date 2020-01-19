@@ -40,11 +40,23 @@ public class Room {
         this.players = players;
     }
 
+    public void removeAllPlayers() {
+        this.players = new ArrayList<Player>();
+    }
+
     public void killEnemy() {
         this.enemy = null;
     }
 
     public void killPlayer(Player player) {
         players.remove(player);
+    }
+
+    public int getTotalPlayerHealth() {
+        int totalHealth = 0;
+        for (Player player : this.players) {
+            totalHealth += player.getHealth();
+        }
+        return totalHealth;
     }
 }
